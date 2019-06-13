@@ -26,7 +26,7 @@
  */
 package impl.org.controlsfx.spreadsheet;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
+import javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

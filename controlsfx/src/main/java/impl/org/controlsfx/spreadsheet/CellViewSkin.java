@@ -26,7 +26,7 @@
  */
 package impl.org.controlsfx.spreadsheet;
 
-import com.sun.javafx.scene.control.skin.TableCellSkin;
+import javafx.scene.control.skin.TableCellSkin;
 import java.util.UUID;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

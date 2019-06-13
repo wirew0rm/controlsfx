@@ -26,7 +26,7 @@
  */
 package impl.org.controlsfx.spreadsheet;
 
-import com.sun.javafx.scene.control.skin.TableColumnHeader;
+import javafx.scene.control.skin.TableColumnHeader;
 import java.util.Stack;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;

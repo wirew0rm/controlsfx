@@ -32,9 +32,9 @@ import javafx.event.EventHandler;
 import javafx.scene.control.TableColumnBase;
 import javafx.scene.input.MouseEvent;
 
-import com.sun.javafx.scene.control.skin.NestedTableColumnHeader;
-import com.sun.javafx.scene.control.skin.TableColumnHeader;
-import com.sun.javafx.scene.control.skin.TableViewSkinBase;
+import javafx.scene.control.skin.NestedTableColumnHeader;
+import javafx.scene.control.skin.TableColumnHeader;
+import javafx.scene.control.skin.TableViewSkinBase;
 import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
 

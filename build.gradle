@@ -30,14 +30,16 @@ ext.java9Args = [
         // For WebPage in SVGLoader
         "--add-exports=javafx.web/com.sun.webkit=org.controlsfx.controls",
         // For enabling FontAwesome
+        "--add-exports=javafx.controls/javafx.scene.control.skin=org.controlsfx.controls",
+        // For enabling FontAwesome
         "--add-exports=javafx.graphics/com.sun.javafx.css=org.controlsfx.controls"
 ]
 
 ext.java9RuntimeArgs = [
         // For accessing VirtualFlow field from the base class in GridViewSkin
-        "--add-opens=javafx.controls/javafx.scene.control.skin=org.controlsfx.controls",
+        "--add-opens=javafx.controls/com.sun.javafx.scene.control.skin=org.controlsfx.controls",
         // For accessing getChildren in ImplUtils
-        "--add-opens=javafx.graphics/javafx.scene=org.controlsfx.controls"
+        "--add-opens=javafx.graphics/com.sun.javafx.scene=org.controlsfx.controls"
 ]
 
 subprojects {
@@ -72,6 +74,7 @@ subprojects {
         apply plugin: 'org.openjfx.javafxplugin'
         javafx {
             modules = [ 'javafx.controls', 'javafx.media', 'javafx.web' ]
+            version = "12.0.1"
         }
     }
 

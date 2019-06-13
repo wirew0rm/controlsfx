@@ -46,9 +46,9 @@ import javafx.util.Callback;
 import org.controlsfx.control.RangeSlider;
 import org.controlsfx.tools.Utils;
 
-import com.sun.javafx.scene.control.behavior.BehaviorBase;
-import com.sun.javafx.scene.control.behavior.FocusTraversalInputMap;
-import com.sun.javafx.scene.control.inputmap.InputMap;
+import javafx.scene.control.behavior.BehaviorBase;
+import javafx.scene.control.behavior.FocusTraversalInputMap;
+import javafx.scene.control.inputmap.InputMap;
 
 public class RangeSliderBehavior extends BehaviorBase<RangeSlider> {
     

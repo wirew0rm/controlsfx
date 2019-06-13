@@ -220,7 +220,7 @@ public class ReflectionUtils {
 
     public static void addUserAgentStylesheet(String stylesheet) {
         try {
-            Class<?> styleManagerClass = Class.forName("com.sun.javafx.css.StyleManager");
+            Class<?> styleManagerClass = Class.forName("javafx.css.StyleManager");
             Method getInstance = styleManagerClass.getMethod("getInstance");
             getInstance.setAccessible(true);
             Object styleManager = getInstance.invoke(styleManagerClass);
@@ -240,7 +240,7 @@ public class ReflectionUtils {
 
     public static Optional<WebPage> getPageFor(WebEngine webEngine) {
         try {
-            Class<?> accessorClass = Class.forName("com.sun.javafx.webkit.Accessor");
+            Class<?> accessorClass = Class.forName("javafx.webkit.Accessor");
             Method getInstance = accessorClass.getMethod("getPageFor");
             getInstance.setAccessible(true);
             WebPage webPage = (WebPage) getInstance.invoke(accessorClass, webEngine);
@@ -258,7 +258,7 @@ public class ReflectionUtils {
 
     public static void setTraversalEngine(Control control, Object engine) {
         try {
-            Class<?> parentHelper = Class.forName("com.sun.javafx.scene.ParentHelper");
+            Class<?> parentHelper = Class.forName("javafx.scene.ParentHelper");
             Method method = parentHelper.getMethod("setTraversalEngine", Parent.class, engine.getClass());
             method.setAccessible(true);
             method.invoke(parentHelper, control, engine);

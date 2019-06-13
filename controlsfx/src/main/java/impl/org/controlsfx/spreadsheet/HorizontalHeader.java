@@ -26,9 +26,9 @@
  */
 package impl.org.controlsfx.spreadsheet;
 
-import com.sun.javafx.scene.control.skin.NestedTableColumnHeader;
-import com.sun.javafx.scene.control.skin.TableColumnHeader;
-import com.sun.javafx.scene.control.skin.TableHeaderRow;
+import javafx.scene.control.skin.NestedTableColumnHeader;
+import javafx.scene.control.skin.TableColumnHeader;
+import javafx.scene.control.skin.TableHeaderRow;
 import static impl.org.controlsfx.spreadsheet.GridViewSkin.DEFAULT_CELL_HEIGHT;
 import java.util.BitSet;
 import java.util.ConcurrentModificationException;

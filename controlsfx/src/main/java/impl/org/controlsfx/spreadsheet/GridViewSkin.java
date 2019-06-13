@@ -71,9 +71,9 @@ import org.controlsfx.control.spreadsheet.SpreadsheetColumn;
 import org.controlsfx.control.spreadsheet.SpreadsheetView;
 
 import com.sun.javafx.scene.control.behavior.TableViewBehavior;
-import com.sun.javafx.scene.control.skin.TableHeaderRow;
-import com.sun.javafx.scene.control.skin.TableViewSkinBase;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
+import javafx.scene.control.skin.TableHeaderRow;
+import javafx.scene.control.skin.TableViewSkinBase;
+import javafx.scene.control.skin.VirtualFlow;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.scene.control.ScrollBar;
@@ -88,8 +88,9 @@ import javafx.scene.control.ScrollBar;
  * TableViewBehavior.
  *
  */
-public class GridViewSkin extends TableViewSkinBase<ObservableList<SpreadsheetCell>,ObservableList<SpreadsheetCell>,TableView<ObservableList<SpreadsheetCell>>,TableViewBehavior<ObservableList<SpreadsheetCell>>,TableRow<ObservableList<SpreadsheetCell>>,TableColumn<ObservableList<SpreadsheetCell>,?>> {
-        
+public class GridViewSkin extends
+        TableViewSkinBase<ObservableList<SpreadsheetCell>, ObservableList<SpreadsheetCell>, TableView<ObservableList<SpreadsheetCell>>, TableRow<ObservableList<SpreadsheetCell>>, TableColumn<ObservableList<SpreadsheetCell>, ?>> {
+
     /***************************************************************************
      * * STATIC FIELDS * *
      **************************************************************************/
@@ -103,7 +104,7 @@ public class GridViewSkin extends TableViewSkinBase<ObservableList<SpreadsheetCe
     static {
         double cell_size = 24.0;
         try {
-            Class<?> clazz = com.sun.javafx.scene.control.skin.CellSkinBase.class;
+            Class<?> clazz = javafx.scene.control.skin.CellSkinBase.class;
             Field f = clazz.getDeclaredField("DEFAULT_CELL_SIZE"); //$NON-NLS-1$
             f.setAccessible(true);
             cell_size = f.getDouble(null);
@@ -265,49 +266,51 @@ public class GridViewSkin extends TableViewSkinBase<ObservableList<SpreadsheetCe
             // available to the user.
             tableView.requestFocus();
         };
-        
+
         getFlow().getVerticalBar().addEventFilter(MouseEvent.MOUSE_PRESSED, ml);
         getFlow().getHorizontalBar().addEventFilter(MouseEvent.MOUSE_PRESSED, ml);
 
         // init the behavior 'closures'
-        TableViewBehavior<ObservableList<SpreadsheetCell>> behavior = getBehavior();
-        behavior.setOnFocusPreviousRow(new Runnable() {
+        gridViewBehavior.setOnFocusPreviousRow(new Runnable() {
             @Override public void run() { onFocusPreviousCell(); }
         });
-        behavior.setOnFocusNextRow(new Runnable() {
+        gridViewBehavior.setOnFocusNextRow(new Runnable() {
             @Override public void run() { onFocusNextCell(); }
         });
-        behavior.setOnMoveToFirstCell(new Runnable() {
+        gridViewBehavior.setOnMoveToFirstCell(new Runnable() {
             @Override public void run() { onMoveToFirstCell(); }
         });
-        behavior.setOnMoveToLastCell(new Runnable() {
+        gridViewBehavior.setOnMoveToLastCell(new Runnable() {
             @Override public void run() { onMoveToLastCell(); }
         });
-        behavior.setOnScrollPageDown(new Callback<Boolean, Integer>() {
-            @Override public Integer call(Boolean isFocusDriven) { return onScrollPageDown(isFocusDriven); }
+        gridViewBehavior.setOnScrollPageDown(new Callback<Boolean, Integer>() {
+            @Override public Integer call(final Boolean isFocusDriven) { return onScrollPageDown(isFocusDriven); }
         });
-        behavior.setOnScrollPageUp(new Callback<Boolean, Integer>() {
-            @Override public Integer call(Boolean isFocusDriven) { return onScrollPageUp(isFocusDriven); }
+        gridViewBehavior.setOnScrollPageUp(new Callback<Boolean, Integer>() {
+            @Override public Integer call(final Boolean isFocusDriven) { return onScrollPageUp(isFocusDriven); }
         });
-        behavior.setOnSelectPreviousRow(new Runnable() {
+        gridViewBehavior.setOnSelectPreviousRow(new Runnable() {
             @Override public void run() { onSelectPreviousCell(); }
         });
-        behavior.setOnSelectNextRow(new Runnable() {
+        gridViewBehavior.setOnSelectNextRow(new Runnable() {
             @Override public void run() { onSelectNextCell(); }
         });
-        behavior.setOnSelectLeftCell(new Runnable() {
+        gridViewBehavior.setOnSelectLeftCell(new Runnable() {
             @Override public void run() { onSelectLeftCell(); }
         });
-        behavior.setOnSelectRightCell(new Runnable() {
+        gridViewBehavior.setOnSelectRightCell(new Runnable() {
             @Override public void run() { onSelectRightCell(); }
         });
 
-        registerChangeListener(tableView.fixedCellSizeProperty(), "FIXED_CELL_SIZE");
+        registerChangeListener(tableView.fixedCellSizeProperty(), e -> {
+            fixedCellSize = fixedCellSizeProperty().get();
+            fixedCellSizeEnabled = fixedCellSize > 0;
+        });
     }
 
-    private InvalidationListener rowToLayoutListener = new InvalidationListener() {
+    private final InvalidationListener rowToLayoutListener = new InvalidationListener() {
         @Override
-        public void invalidated(Observable observable) {
+        public void invalidated(final Observable observable) {
             rowToLayout = initRowToLayoutBitSet();
         }
     };

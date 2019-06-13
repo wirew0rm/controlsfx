@@ -28,7 +28,7 @@ package impl.org.controlsfx.spreadsheet;
 
 import com.sun.javafx.scene.control.behavior.CellBehaviorBase;
 import com.sun.javafx.scene.control.behavior.TableRowBehavior;
-import com.sun.javafx.scene.control.skin.CellSkinBase;
+import javafx.scene.control.skin.CellSkinBase;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ import org.controlsfx.control.spreadsheet.SpreadsheetCell;
 import org.controlsfx.control.spreadsheet.SpreadsheetColumn;
 import org.controlsfx.control.spreadsheet.SpreadsheetView;
 
-public class GridRowSkin extends CellSkinBase<TableRow<ObservableList<SpreadsheetCell>>, CellBehaviorBase<TableRow<ObservableList<SpreadsheetCell>>>> {
+public class GridRowSkin extends CellSkinBase<TableRow<ObservableList<SpreadsheetCell>>> {
 
     private final SpreadsheetHandle handle;
     private final SpreadsheetView spreadsheetView;

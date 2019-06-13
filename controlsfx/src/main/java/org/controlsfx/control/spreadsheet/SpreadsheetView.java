@@ -2261,7 +2261,7 @@ public class SpreadsheetView extends Control{
     /**
      * This is called when setting a Grid. The main idea is to re-use
      * TableColumn if possible. Because we can have a great amount of time spent
-     * in com.sun.javafx.css.StyleManager.forget when removing lots of columns
+     * in javafx.css.StyleManager.forget when removing lots of columns
      * and adding new ones. So if we already have some, we can just re-use them
      * so we avoid doign all the fuss with the TableColumns.
      *

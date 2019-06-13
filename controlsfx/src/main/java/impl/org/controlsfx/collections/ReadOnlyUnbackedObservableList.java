@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * Minimum implementation of com.sun.javafx.scene.control.ReadOnlyUnbackedObservableList
+ * Minimum implementation of javafx.scene.control.ReadOnlyUnbackedObservableList
  */
 public abstract class ReadOnlyUnbackedObservableList<E> extends ObservableListBase<E> {
 

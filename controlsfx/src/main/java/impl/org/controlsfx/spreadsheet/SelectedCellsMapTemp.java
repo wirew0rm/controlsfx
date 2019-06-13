@@ -37,7 +37,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.scene.control.TablePositionBase;
 
 /**
- * This class is copied from com.sun.javafx.scene.control.SelectedCellsMap
+ * This class is copied from javafx.scene.control.SelectedCellsMap
  * temporary in 8u20 to resolve https://javafx-jira.kenai.com/browse/RT-38306
  * 
  * Will be removed in 8u40
