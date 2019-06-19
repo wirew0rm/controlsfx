@@ -1,1 +1,1 @@
-include "controlsfx", "fxsampler", "controlsfx-samples"
+include "controlsfx-controlsfx", "controlsfx-fxsampler", "controlsfx-samples"

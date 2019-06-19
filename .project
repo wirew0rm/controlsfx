@@ -30,11 +30,11 @@
 					</matcher>
 					<matcher>
 						<id>org.eclipse.ui.ide.multiFilter</id>
-						<arguments>1.0-projectRelativePath-equals-true-false-controlsfx</arguments>
+						<arguments>1.0-projectRelativePath-equals-true-false-controlsfx-controlsfx</arguments>
 					</matcher>
 					<matcher>
 						<id>org.eclipse.ui.ide.multiFilter</id>
-						<arguments>1.0-projectRelativePath-equals-true-false-fxsampler</arguments>
+						<arguments>1.0-projectRelativePath-equals-true-false-controlsfx-fxsampler</arguments>
 					</matcher>
 				</arguments>
 			</matcher>
